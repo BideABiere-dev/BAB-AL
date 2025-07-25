@@ -4,7 +4,16 @@
   <meta charset="UTF-8">
   <title>Liste de courses</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#007bff">
 </head>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('serviceWorker.js')
+      .then(() => console.log('✅ Service Worker enregistré'))
+      .catch((err) => console.error('❌ Erreur Service Worker', err));
+  }
+</script>
 <body>
   <h2>🛒 Liste de courses</h2>
   <div class="input-container">
