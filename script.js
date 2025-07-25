@@ -1,30 +1,40 @@
-const list = document.getElementById('list');
-const input = document.getElementById('itemInput');
-let saved = JSON.parse(localStorage.getItem('shoppingList')) || [];
+// Config Supabase
+const supabase = supabase.createClient(
+  'https://qxyvxsennasbxzwhluky.supabase.co',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF4eXZ4c2VubmFzYnh6d2hsdWt5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM0NTEwOTcsImV4cCI6MjA2OTAyNzA5N30.2ZeSzacrYH-3tEqqvezBbovvJrxlazbLvO6vZDgjEQE'
+);
 
-function renderList() {
+// Ajouter un nouvel item
+async function addItem() {
+  const value = document.getElementById('itemInput').value.trim();
+  if (!value) return;
+
+  await supabase.from('courses').insert([{ item: value }]);
+  document.getElementById('itemInput').value = '';
+  loadItems();
+}
+
+// Supprimer un item
+async function removeItem(id) {
+  await supabase.from('courses').delete().eq('id', id);
+  loadItems();
+}
+
+// Afficher la liste
+async function loadItems() {
+  const { data, error } = await supabase
+    .from('courses')
+    .select('*')
+    .order('created_at', { ascending: true });
+
+  const list = document.getElementById('list');
   list.innerHTML = '';
-  saved.forEach((item, index) => {
+  data.forEach(row => {
     const li = document.createElement('li');
-    li.innerHTML = `${item} <button onclick="removeItem(${index})">X</button>`;
+    li.innerHTML = `${row.item} <button onclick="removeItem('${row.id}')">X</button>`;
     list.appendChild(li);
   });
 }
 
-function addItem() {
-  const value = input.value.trim();
-  if (value) {
-    saved.push(value);
-    localStorage.setItem('shoppingList', JSON.stringify(saved));
-    renderList();
-    input.value = '';
-  }
-}
-
-function removeItem(index) {
-  saved.splice(index, 1);
-  localStorage.setItem('shoppingList', JSON.stringify(saved));
-  renderList();
-}
-
-renderList();
+// Charger au démarrage
+loadItems();
