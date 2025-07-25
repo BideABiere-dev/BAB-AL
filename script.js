@@ -41,3 +41,20 @@ async function loadItems() {
 
 // Charger au démarrage
 loadItems();
+
+// Écoute les changements sur la table "Courses"
+supabaseClient
+  .channel('courses-changes')
+  .on(
+    'postgres_changes',
+    {
+      event: '*',
+      schema: 'public',
+      table: 'Courses',
+    },
+    (payload) => {
+      console.log('🔄 Changement détecté:', payload);
+      loadItems();
+    }
+  )
+  .subscribe();
