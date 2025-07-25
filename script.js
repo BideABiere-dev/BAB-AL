@@ -1,6 +1,9 @@
 // Config Supabase
-const supabase = supabase.createClient(
-  'https://qxyvxsennasbxzwhluky.supabase.co',
+// Initialisation correcte de Supabase
+const { createClient } = supabase;
+
+const supabaseClient = createClient(
+  'https://qxyvxsennasbxzwhluky.supabaseClient.co',
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF4eXZ4c2VubmFzYnh6d2hsdWt5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM0NTEwOTcsImV4cCI6MjA2OTAyNzA5N30.2ZeSzacrYH-3tEqqvezBbovvJrxlazbLvO6vZDgjEQE'
 );
 
@@ -9,14 +12,14 @@ async function addItem() {
   const value = document.getElementById('itemInput').value.trim();
   if (!value) return;
 
-  await supabase.from('Courses').insert([{ item: value }]);
+  await supabaseClient.from('Courses').insert([{ item: value }]);
   document.getElementById('itemInput').value = '';
   loadItems();
 }
 
 // Supprimer un item
 async function removeItem(id) {
-  await supabase.from('Courses').delete().eq('id', id);
+  await supabaseClient.from('Courses').delete().eq('id', id);
   loadItems();
 }
 
