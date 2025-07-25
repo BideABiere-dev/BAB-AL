@@ -25,7 +25,7 @@ async function removeItem(id) {
 
 // Afficher la liste
 async function loadItems() {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseClient
     .from('Courses')
     .select('*')
     .order('created_at', { ascending: true });
