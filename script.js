@@ -3,7 +3,7 @@
 const { createClient } = supabase;
 
 const supabaseClient = createClient(
-  'https://qxyvxsennasbxzwhluky.supabaseClient.co',
+  'https://qxyvxsennasbxzwhluky.supabase.co',
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF4eXZ4c2VubmFzYnh6d2hsdWt5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM0NTEwOTcsImV4cCI6MjA2OTAyNzA5N30.2ZeSzacrYH-3tEqqvezBbovvJrxlazbLvO6vZDgjEQE'
 );
 
