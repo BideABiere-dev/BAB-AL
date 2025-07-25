@@ -9,21 +9,21 @@ async function addItem() {
   const value = document.getElementById('itemInput').value.trim();
   if (!value) return;
 
-  await supabase.from('courses').insert([{ item: value }]);
+  await supabase.from('Courses').insert([{ item: value }]);
   document.getElementById('itemInput').value = '';
   loadItems();
 }
 
 // Supprimer un item
 async function removeItem(id) {
-  await supabase.from('courses').delete().eq('id', id);
+  await supabase.from('Courses').delete().eq('id', id);
   loadItems();
 }
 
 // Afficher la liste
 async function loadItems() {
   const { data, error } = await supabase
-    .from('courses')
+    .from('Courses')
     .select('*')
     .order('created_at', { ascending: true });
 
