@@ -54,12 +54,17 @@
 
   <script src="script.js"></script>
   <script>
-    function navigateTo(pageId) {
-      document.querySelectorAll('.page').forEach(page => {
-        page.classList.remove('active');
-      });
-      document.getElementById(pageId).classList.add('active');
-    }
+function navigateTo(pageId) {
+  document.querySelectorAll('.page').forEach(page => {
+    page.classList.remove('active');
+  });
+
+  document.getElementById(pageId).classList.add('active');
+
+  if (pageId === "courses") {
+    loadItems(); // recharge les données quand on ouvre "Courses"
+  }
+}
 
     navigateTo('dashboard');
   </script>
