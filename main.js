@@ -4,14 +4,17 @@ const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
 async function navigateTo(pageId) {
-  let html = await fetch(`${pageId}.html`).then(res => res.text());
+  const container = document.getElementById("main-content");
 
-  // Injecte le code JS directement dans la page si elle correspond à un module
+  const html = await fetch(`${pageId}.html`).then(res => res.text());
+  container.innerHTML = html;
+
   if (pageId === "courses") {
-    html += `<script>${await fetch("courses.js").then(r => r.text())}</script>`;
+    const script = document.createElement("script");
+    script.src = "courses.js";
+    script.defer = true;
+    document.body.appendChild(script);
   }
-
-  document.getElementById("main-content").innerHTML = html;
 }
 
 window.addEventListener("DOMContentLoaded", () => {
