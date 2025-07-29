@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>BABAL</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+</head>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('serviceWorker.js')
+      .then(() => console.log('✅ Service Worker enregistré'))
+      .catch((err) => console.error('❌ Erreur Service Worker', err));
+  }
+</script>
+<body>
+  <h2>🛒 Liste de courses</h2>
+  <div class="input-container">
+    <input id="itemInput" type="text" placeholder="Ajouter un élément">
+    <button onclick="addItem()">Ajouter</button>
+  </div>
+  <ul id="list"></ul>
+
+  <script src="script.js"></script>
+</body>
+</html>
