@@ -30,7 +30,7 @@ async function loadItems() {
     .select('*')
     .order('created_at', { ascending: true });
 
-  const list = document.getElementById('list');
+  const list = document.getElementById('itemList');
   list.innerHTML = '';
   data.forEach(row => {
     const li = document.createElement('li');
