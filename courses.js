@@ -1,4 +1,4 @@
-
+console.log("Courses.js chargé !");
 async function addItem() {
   const itemInput = document.getElementById("itemInput");
   const item = itemInput.value.trim();
