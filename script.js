@@ -45,4 +45,3 @@ async function loadItems() {
 }
 
 navigateTo("dashboard");
-}
