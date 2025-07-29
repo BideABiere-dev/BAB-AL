@@ -17,10 +17,10 @@ async function loadItems() {
     .from("Courses")
     .select("*")
     .order("created_at", { ascending: true });
-
+console.log("📦 data =", data);
   const list = document.getElementById("list");
   if (!list) return;
-
+console.log("🧪 list =", list);
   list.innerHTML = "";
 
   if (data) {
