@@ -18,7 +18,7 @@ async function addItem() {
   const item = itemInput.value.trim();
   if (item === "") return;
 
-  const { error } = await supabase.from("Courses").insert([{ nom: item }]);
+  const { error } = await supabase.from("Courses").insert([{ item: item }]);
 
   if (!error) {
     itemInput.value = "";
@@ -38,7 +38,7 @@ async function loadItems() {
   if (data) {
     data.forEach((item) => {
       const li = document.createElement("li");
-      li.textContent = item.nom;
+      li.textContent = item.item;
       list.appendChild(li);
     });
   }
