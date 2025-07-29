@@ -5,11 +5,11 @@ const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 const pages = ["dashboard", "courses", "recettes", "calendrier", "energie"];
 
 async function navigateTo(pageId) {
-  const html = await fetch(`modules/${pageId}.html`).then(res => res.text());
+  const html = await fetch(`${pageId}.html`).then(res => res.text());
   document.getElementById("main-content").innerHTML = html;
 
   // Charge le script associé s’il existe
-  const scriptPath = `modules/${pageId}.js`;
+  const scriptPath = `${pageId}.js`;
   fetch(scriptPath).then(r => {
     if (r.ok) {
       const script = document.createElement("script");
