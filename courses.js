@@ -1,3 +1,4 @@
+
 async function addItem() {
   const itemInput = document.getElementById("itemInput");
   const item = itemInput.value.trim();
@@ -18,7 +19,7 @@ async function loadItems() {
     .order("created_at", { ascending: true });
 
   const list = document.getElementById("list");
-  if (!list) return; // 👈 AJOUTÉ pour éviter les erreurs
+  if (!list) return;
 
   list.innerHTML = "";
 
@@ -31,7 +32,6 @@ async function loadItems() {
   }
 }
 
-// ✅ Nouveau : attends que le HTML soit prêt avant de lancer
 document.addEventListener("DOMContentLoaded", () => {
   loadItems();
 });
