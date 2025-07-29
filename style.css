@@ -32,6 +32,21 @@ button {
   cursor: pointer;
 }
 
+ul#list {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+ul#list li {
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  font-size: 16px;
+}
+
 ul {
   list-style: none;
   padding: 0;
