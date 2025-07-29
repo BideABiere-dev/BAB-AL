@@ -12,7 +12,11 @@ async function navigateTo(pageId) {
   if (pageId === "courses") {
     const script = document.createElement("script");
     script.src = "courses.js";
-    script.defer = true;
+    script.onload = () => {
+      if (typeof loadItems === "function") {
+        loadItems();
+      }
+    };
     document.body.appendChild(script);
   }
 }
