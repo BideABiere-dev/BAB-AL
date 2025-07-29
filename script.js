@@ -42,6 +42,12 @@ async function loadItems() {
 // Charger au démarrage
 loadItems();
 
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") {
+    loadItems(); // recharge les données dès que l'app revient au premier plan
+  }
+});
+
 // Écoute les changements sur la table "Courses"
 supabaseClient
   .channel('courses-changes')
