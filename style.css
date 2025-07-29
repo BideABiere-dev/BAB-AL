@@ -54,3 +54,30 @@ li button {
   padding: 5px 10px;
   cursor: pointer;
 }
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+  background: #eee;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.navbar button {
+  padding: 8px 14px;
+  font-size: 16px;
+  border: none;
+  background: #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+}
