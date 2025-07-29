@@ -10,9 +10,9 @@
   <!-- Barre de navigation -->
   <div class="navbar">
     <button onclick="navigateTo('dashboard')">🏠 Accueil</button>
-    <button onclick="navigateTo('courses')">🛒 Courses</button>
+    <button onclick="navigateTo('courses')">🚲 Courses</button>
     <button onclick="navigateTo('recettes')">🧾 Recettes</button>
-    <button onclick="navigateTo('calendrier')">📅 Calendrier</button>
+    <button onclick="navigateTo('calendrier')">🗕️ Calendrier</button>
     <button onclick="navigateTo('energie')">⚡ Énergie</button>
   </div>
 
@@ -20,7 +20,7 @@
     <!-- Accueil -->
     <section id="dashboard" class="page active">
       <h1>Bienvenue sur le Dashboard</h1>
-      <p>Sélectionne une section avec les boutons ci-dessus 👆</p>
+      <p>Sélectionne une section avec les boutons ci-dessus 👇</p>
     </section>
 
     <!-- Courses -->
@@ -30,13 +30,13 @@
         <input type="text" id="itemInput" placeholder="Ajouter un article...">
         <button onclick="addItem()">Ajouter</button>
       </div>
-      <ul id="itemList"></ul>
+      <ul id="list"></ul>
     </section>
 
     <!-- Recettes -->
     <section id="recettes" class="page">
       <h1>Mes recettes</h1>
-      <p>À venir : recherche, ajout et consultation de recettes 🧑‍🍳</p>
+      <p>À venir : recherche, ajout et consultation de recettes 🥱️</p>
     </section>
 
     <!-- Calendrier -->
@@ -54,19 +54,18 @@
 
   <script src="script.js"></script>
   <script>
-function navigateTo(pageId) {
-  document.querySelectorAll('.page').forEach(page => {
-    page.classList.remove('active');
-  });
+    function navigateTo(pageId) {
+      document.querySelectorAll(".page").forEach((page) => {
+        page.classList.remove("active");
+      });
+      document.getElementById(pageId).classList.add("active");
 
-  document.getElementById(pageId).classList.add('active');
+      if (pageId === "courses") {
+        setTimeout(loadItems, 0);
+      }
+    }
 
-  if (pageId === "courses") {
-    loadItems(); // recharge les données quand on ouvre "Courses"
-  }
-}
-
-    navigateTo('dashboard');
+    navigateTo("dashboard");
   </script>
 </body>
 </html>
