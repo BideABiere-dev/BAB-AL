@@ -44,4 +44,6 @@ async function loadItems() {
   }
 }
 
-navigateTo("dashboard");
+window.addEventListener("DOMContentLoaded", () => {
+  navigateTo("dashboard");
+});
