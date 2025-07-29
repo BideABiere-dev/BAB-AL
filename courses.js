@@ -18,6 +18,8 @@ async function loadItems() {
     .order("created_at", { ascending: true });
 
   const list = document.getElementById("list");
+  if (!list) return; // 👈 AJOUTÉ pour éviter les erreurs
+
   list.innerHTML = "";
 
   if (data) {
@@ -29,4 +31,7 @@ async function loadItems() {
   }
 }
 
-loadItems();
+// ✅ Nouveau : attends que le HTML soit prêt avant de lancer
+document.addEventListener("DOMContentLoaded", () => {
+  loadItems();
+});
