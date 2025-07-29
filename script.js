@@ -46,5 +46,3 @@ async function loadItems() {
 
 navigateTo("dashboard");
 }
-
-navigateTo("dashboard");
