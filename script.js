@@ -7,9 +7,7 @@ async function addItem() {
   const item = itemInput.value.trim();
   if (item === "") return;
 
-  const { error } = await supabase
-    .from("Courses")
-    .insert([{ nom: item }]);
+  const { error } = await supabase.from("Courses").insert([{ nom: item }]);
 
   if (!error) {
     itemInput.value = "";
@@ -34,3 +32,16 @@ async function loadItems() {
     });
   }
 }
+
+function navigateTo(pageId) {
+  document.querySelectorAll(".page").forEach((page) => {
+    page.classList.remove("active");
+  });
+  document.getElementById(pageId).classList.add("active");
+
+  if (pageId === "courses") {
+    setTimeout(loadItems, 0);
+  }
+}
+
+navigateTo("dashboard");
