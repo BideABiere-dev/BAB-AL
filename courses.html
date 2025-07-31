@@ -2,7 +2,11 @@
   <h1>Liste de courses</h1>
   <div class="form">
     <input type="text" id="itemInput" placeholder="Ajouter un article...">
+    <input type="number" id="quantityInput" min="1" value="1">
     <button onclick="addItem()">Ajouter</button>
   </div>
   <ul id="list"></ul>
+  <div class="validate-container">
+    <button class="validate-btn" onclick="validateItems()">Valider</button>
+  </div>
 </section>
