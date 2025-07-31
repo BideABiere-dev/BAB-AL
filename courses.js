@@ -69,3 +69,15 @@ async function validateItems() {
 }
 
 loadItems();
+
+// 2. Abonnement en temps réel à la table Courses
+supabase
+  .channel('courses-realtime')
+  .on(
+    'postgres_changes',
+    { event: '*', schema: 'public', table: 'Courses' },
+    () => {
+      loadItems(); // Recharge la liste à chaque modification
+    }
+  )
+  .subscribe();
