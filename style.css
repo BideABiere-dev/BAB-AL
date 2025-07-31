@@ -134,25 +134,20 @@ li.course-item {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: #2a2a2a;
-  padding: 15px 10px;
   gap: 10px;
-  border-bottom: 1px solid #444;
+  margin-bottom: 20px;
 }
 
 .navbar button {
-  padding: 12px 18px;
-  font-size: 18px;
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: 8px;
   background-color: #4caf50;
   color: white;
   border: none;
-  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.navbar button:hover {
-  background-color: #45a049;
+  flex: 1 1 calc(50% - 20px); /* 2 par ligne sur mobile */
+  max-width: 160px;
 }
 
 @media (max-width: 500px) {
@@ -190,10 +185,15 @@ li.course-item {
     font-size: 18px;
   }
 
+ .navbar {
+    gap: 8px;
+  }
+
   .navbar button {
-    flex: 1 1 100%;
-    font-size: 20px;
-    padding: 14px;
+    font-size: 14px;
+    padding: 10px;
+    flex: 1 1 calc(50% - 12px);
+    max-width: 48%;
   }
 }
 
