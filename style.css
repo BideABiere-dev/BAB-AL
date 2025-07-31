@@ -97,6 +97,64 @@ li.course-item {
   cursor: pointer;
 }
 
+/* Bouton de validation */
+.validate-btn {
+  display: block;
+  margin: 30px auto 0 auto;
+  padding: 12px 20px;
+  background-color: #2196f3;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.validate-btn:hover {
+  background-color: #1976d2;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #ccc;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 10px;
+  line-height: 1;
+}
+
+.delete-btn:hover {
+  color: red;
+}
+
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #2a2a2a;
+  padding: 15px 10px;
+  gap: 10px;
+  border-bottom: 1px solid #444;
+}
+
+.navbar button {
+  padding: 12px 18px;
+  font-size: 18px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.navbar button:hover {
+  background-color: #45a049;
+}
+
 @media (max-width: 500px) {
   .form {
     flex-direction: column;
@@ -131,38 +189,11 @@ li.course-item {
     width: 100%;
     font-size: 18px;
   }
+
+  .navbar button {
+    flex: 1 1 100%;
+    font-size: 20px;
+    padding: 14px;
+  }
 }
 
-
-/* Bouton de validation */
-.validate-btn {
-  display: block;
-  margin: 30px auto 0 auto;
-  padding: 12px 20px;
-  background-color: #2196f3;
-  color: white;
-  font-size: 16px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.validate-btn:hover {
-  background-color: #1976d2;
-}
-
-.delete-btn {
-  background: none;
-  border: none;
-  color: #ccc;
-  font-size: 20px;
-  cursor: pointer;
-  padding: 0;
-  margin-right: 10px;
-  line-height: 1;
-}
-
-.delete-btn:hover {
-  color: red;
-}
