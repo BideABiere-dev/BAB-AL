@@ -151,3 +151,18 @@ li.course-item {
 .validate-btn:hover {
   background-color: #1976d2;
 }
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #ccc;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 10px;
+  line-height: 1;
+}
+
+.delete-btn:hover {
+  color: red;
+}
