@@ -21,6 +21,7 @@ async function navigateTo(pageId) {
   }
 }
 
+
 window.addEventListener("DOMContentLoaded", () => {
   navigateTo("dashboard");
 });
